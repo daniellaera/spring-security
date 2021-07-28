@@ -40,3 +40,16 @@ INSERT INTO roles(name) VALUES('ROLE_USER');
 INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
 INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 ```
+
+## Run Swagger Rest Tests
+
+``http://localhost:8080/swagger-ui/``
+
+example endpoint `/api/auth/signin`
+
+```
+{
+"username": "usernam",
+"password": "password"
+} 
+```
