@@ -1,12 +1,14 @@
-package com.example.accessingdatajpa.jwt;
+package com.example.accessingdatajpa.payload.request;
 
-public class UsernameAndPasswordAuthenticationRequest {
+import javax.validation.constraints.NotBlank;
 
+public class LoginRequest {
+
+    @NotBlank
     private String username;
-    private String password;
 
-    public UsernameAndPasswordAuthenticationRequest() {
-    }
+    @NotBlank
+    private String password;
 
     public String getUsername() {
         return username;
