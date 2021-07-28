@@ -20,6 +20,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -80,11 +81,13 @@ public class AuthController {
 
         try {
             this.roleDetailsService.buildUser(dto);
+            logger.info("Register user successfully in date: {}", new Date());
+            return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
         } catch (Exception e) {
-            logger.error("Impossible to register user: {}" ,e.getMessage());
-            new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            logger.error("Impossible to register user: {}", e.getMessage());
+            return new ResponseEntity<>(new MessageResponse("Impossible to register user "), HttpStatus.BAD_REQUEST);
         }
 
-        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        // return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
 }
